@@ -1,3 +1,3 @@
-export function printString(str) {
-    console.log(str);
+export function printString(str, ...optionalParams) {
+    console.log(str, ...optionalParams);
 }
