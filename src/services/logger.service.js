@@ -1,3 +1,5 @@
+//TODO: try include any logger library
+
 export function log(message) {
     console.log(message);
 }
