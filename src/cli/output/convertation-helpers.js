@@ -1,3 +1,5 @@
+import { apiBaseURL } from '../../services/env.service.js';
+
 export function convertBranchDataToOutputInfo(branchData, userName, appName) {
     const { branch, lastBuild } = branchData;
     const seconds = ((new Date(lastBuild.finishTime) - new Date(lastBuild.startTime))/1000).toFixed(0);
@@ -8,7 +10,7 @@ export function convertBranchDataToOutputInfo(branchData, userName, appName) {
 
 function getLogsLink(branchData, userName, appName) {
     const { branch, lastBuild } = branchData;
-    const BASE_URL='https://appcenter.ms'; //TODO: move to env or constants
+    const BASE_URL=apiBaseURL();
 
     return `${BASE_URL}/users/${userName}/apps/${appName}/build/branches/${branch.name}/builds/${lastBuild.id}`;
 }
